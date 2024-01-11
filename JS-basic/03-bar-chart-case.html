@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bar Chart</title>
+    <style>
+      .box {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        border-left: solid 1px;
+        border-bottom: solid 1px;
+        width: 500px;
+      }
+
+      .container {
+        margin: 0 20px;
+        align-self: flex-end;
+      }
+
+      .bar {
+        background-color: lightpink;
+        width: 50px;
+        height: 160px;
+      }
+
+      .titles {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-left: 5px;
+      }
+
+      h4 {
+        margin: 0 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- input numbers for different season sales -->
+    <!-- bar height is the input value -->
+    <!-- bars are boxes aligned in flex -->
+    <script>
+      // for loop to get 4 times input
+      let arr = [];
+      let arrTitle = [];
+      for (let i = 0; i < 4; i++) {
+        arr.push(+prompt(`Please input sales for season ${i + 1}:`));
+        arrTitle.push(`Season ${i + 1}`);
+      }
+      document.write(`<div class="box">
+      <div class="container">
+        <h6>${arr[0]}</h6>
+        <div class="bar" style="height: ${arr[0]}px;"></div>
+      </div>
+      <div class="container">
+        <h6 id="b2">${arr[1]}</h6>
+        <div class="bar" style="height: ${arr[1]}px;"></div>
+      </div>
+      <div class="container">
+        <h6 id="b3">${arr[2]}</h6>
+        <div class="bar" style="height: ${arr[2]}px;"></div>
+      </div>
+      <div class="container">
+        <h6 id="b4">${arr[3]}</h6>
+        <div class="bar" style="height: ${arr[3]}px;"></div>
+      </div>
+    </div>
+    <div class="titles">
+      <h4>${arrTitle[0]}</h4>
+      <h4>${arrTitle[1]}</h4>
+      <h4>${arrTitle[2]}</h4>
+      <h4>${arrTitle[3]}</h4>
+    </div>`);
+    </script>
+  </body>
+</html>

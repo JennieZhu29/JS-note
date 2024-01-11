@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guessing</title>
+  </head>
+  <body>
+    <script>
+      function guessNum() {
+        let ram = Math.floor(Math.random() * 10) + 1;
+        console.log(ram);
+        return ram;
+      }
+
+      let result = guessNum();
+
+      for (let i = 0; i < 3; i++) {
+        let n = +prompt(" Please input a number from 1-10: ");
+        if (n > result) {
+          alert("smaller");
+        } else if (n < result) {
+          alert("bigger");
+        } else {
+          alert("Correct!");
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>

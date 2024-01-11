@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object</title>
+  </head>
+  <body>
+    <script>
+      let obj = {
+        age: 17,
+        gender: "female",
+        hobby: "shopping",
+        song: function (songs = "") {
+          document.write(`${songs}`);
+        },
+        dance: function () {
+          document.write("I am dancing!");
+        },
+      };
+
+      obj.song("disco");
+      obj.dance();
+    </script>
+  </body>
+</html>

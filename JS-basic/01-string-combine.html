@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Table</title>
+    <style>
+      h3 {
+        text-align: center;
+      }
+      .orderTable {
+        background-color: #ffffe0;
+        /* merge neibour cells */
+        border-collapse: collapse;
+        font-size: 18px;
+        height: 100px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .orderTable th {
+        background-color: #bdb76b;
+        color: white;
+        padding: 5px 30px;
+      }
+      .orderTable,
+      .orderTable th,
+      .orderTable td {
+        border: 1px solid #8b4726;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let name = prompt("Please enter product name:");
+      let price = parseFloat(prompt("Please enter unit price:"));
+      let qty = Number(prompt("Please enter quantity:"));
+      let addr = prompt("Please enter address:");
+      let tPrice = (qty * price).toFixed(2);
+      document.write(`<h3>Order Details</h3>
+    <div>
+      <table class="orderTable">
+        <tr>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total Price</th>
+          <th>Address</th>
+          <th>Operation</th>
+        </tr>
+        <tr>
+          <td>${name}</td>
+          <td>${price} AUD</td>
+          <td>${qty} pcs</td>
+          <td>${qty * price} AUD</td>
+          <td>${addr}</td>
+          <td><button>Cancel</button><button>Confirm</button></td>
+        </tr>
+      </table>
+    </div>`);
+    </script>
+  </body>
+</html>

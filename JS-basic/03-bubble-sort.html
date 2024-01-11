@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>age input</title>
+  </head>
+  <body>
+    <script>
+      /* Bubble sort: 
+      to get the ascent order.(any order you like)
+      from 1st index, compare the value with the next index, put the greater value to the next index.
+      (OR swap the value if i1> i0)
+      */
+      function bubbleSOrt(array) {
+        for (let i = 0; i < array.length; i++) {
+          for (let j = 0; j < array.length - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+              let temp = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+            }
+          }
+        }
+      }
+      let arr = [21, 46, 78, 93, 35, 7, 69, 91];
+      bubbleSOrt(arr);
+      document.write(`new array: ${arr}`);
+    </script>
+  </body>
+</html>

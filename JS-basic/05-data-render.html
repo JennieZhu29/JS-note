@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Table</title>
+    <style>
+      table {
+        width: 600px;
+        text-align: center;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+      }
+
+      caption {
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      tr {
+        height: 40px;
+        cursor: pointer;
+      }
+
+      table tr:nth-child(1) {
+        background-color: #ddd;
+      }
+
+      table tr:not(:first-child):hover {
+        background-color: #eee;
+      }
+      /* ignore the first row */
+    </style>
+  </head>
+  <body>
+    <h2>Student Information</h2>
+    <p>Rendering page with data</p>
+    <table>
+      <caption>
+        Student List
+      </caption>
+      <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>City</th>
+      </tr>
+      <!-- script here -->
+      <script>
+        // array of object
+        let stu = [
+          { name: "alex", age: 19, gender: "f", city: "sydney" },
+          { name: "boon", age: 25, gender: "m", city: "melbourne" },
+          { name: "cc", age: 32, gender: "f", city: "sydney" },
+          { name: "david", age: 27, gender: "f", city: "hobart" },
+        ];
+        // page rendering
+        for (let i = 0; i < stu.length; i++) {
+          document.write(`
+          <tr>
+            <th>${i + 1}</th>
+            <th>${stu[i].name}</th>
+            <th>${stu[i].age}</th>
+            <th>${stu[i].gender}</th>
+            <th>${stu[i].city}</th>
+          `);
+        }
+      </script>
+    </table>
+
+    <script></script>
+  </body>
+</html>

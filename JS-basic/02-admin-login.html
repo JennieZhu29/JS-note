@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin login</title>
+  </head>
+  <body>
+    <script>
+      // uname = admin
+      // pwd = 123456
+      while (true) {
+        let uname = prompt("Please input your username: ");
+        let pwd = prompt("Please input password: ");
+        if (uname === "admin" && pwd === "123456") {
+          alert("Logged in successfully!");
+          break;
+        }
+        alert("invalid user name or password!");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      // put item > 10 to another array
+      let arr = [12, 3, 5, 8, 14, 46, 34, 7, 11];
+      // camel naming !
+      let newArr = [];
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 10) newArr.push(arr[i]);
+      }
+      document.write(
+        `new array with all numbers bigger than 10: <b>${newArr}</b>`
+      );
+    </script>
+  </body>
+</html>

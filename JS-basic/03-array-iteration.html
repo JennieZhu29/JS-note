@@ -1,0 +1,21 @@
+03-array-iteration.html<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array iteration</title>
+  </head>
+  <body>
+    <script>
+      // get sum and the average value of all array items
+      let arr = [2, 6, 1, 7, 4];
+      let sum = 0;
+      let avg = 0;
+      for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+      document.write(`The sum is ${sum}<br>`);
+      document.write(`The avg is ${sum / arr.length}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>age input</title>
+  </head>
+  <body>
+    <script>
+      // put valid 5 ages to array
+      let arr = [];
+      let age = 0;
+      for (let index = 0; index < 5; index++) {
+        age = +prompt(`Please input Age`);
+        if (age > 1 && age < 100) {
+          arr.push(age);
+        } else alert("invalid input! (age between 1-100)");
+      }
+      document.write(`all ages : ${arr}<br>`);
+      // get all adult ages
+      let arrAdult = [];
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= 18) {
+          arrAdult.push(arr[i]);
+        }
+      }
+      document.write(`all adult ages : ${arrAdult}<br>`);
+      // get all age sum
+      let sum = 0;
+      for (let j = 0; j < arr.length; j++) {
+        sum += arr[j];
+      }
+      document.write(`age sum is: ${sum}<br>`);
+      // get age avg
+      document.write(`age avg is : ${sum / 5}<br>`);
+      // get max and min age
+      arr.sort();
+      document.write(`min age : ${arr[0]}<br>`);
+      document.write(`max age : ${arr[4]}<br>`);
+    </script>
+  </body>
+</html>

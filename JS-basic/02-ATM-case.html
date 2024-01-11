@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATM</title>
+  </head>
+  <body>
+    <script>
+      // 1. input a balance
+      // 2. all choices are on the prompt window
+      // 3. only option 4 can exit the system
+      // 4. switch
+      let balance = +prompt(
+        "Welcome to ATM system. \nInput your balance first: "
+      );
+      while (true) {
+        let selection = +prompt(
+          "Please input operation number: \n[1] Deposit \n[2] Withdraw \n[3] Check Balance \n[4] Exit \n"
+        );
+        if (selection < 4) {
+          switch (selection) {
+            case 1:
+              let deposit = +prompt("Please input deposit amount: ");
+              balance += deposit;
+              alert("Successful deposit!");
+              break;
+            case 2:
+              let withdraw = +prompt("Please input withdraw amount: ");
+              balance -= withdraw;
+              alert("Successful withdraw!");
+              break;
+            case 3:
+              alert(`Current balance is ${balance}`);
+              break;
+          }
+          continue;
+        } else if (selection === 4) {
+          alert("Successfully exited!");
+          break;
+        } else {
+          alert("Invalid input!");
+          continue;
+        }
+      }
+    </script>
+  </body>
+</html>

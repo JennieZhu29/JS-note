@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Number</title>
+  </head>
+  <body>
+    <script>
+      let arr = ["rurf", "fjrr", "wwif", "ferra", "siwow", "fjfkf"];
+
+      let ramIndex = Math.floor(Math.random() * arr.length);
+      // splice(start index, num to be deleted)
+
+      document.write(`${arr[ramIndex]} <br>`);
+
+      arr.splice(ramIndex, 1);
+
+      document.write(`${arr}`);
+    </script>
+  </body>
+</html>

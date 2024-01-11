@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Number</title>
+  </head>
+  <body>
+    <script>
+      // math random function can get number from [0 , 1)
+      function getRadom(n = 0, m = 0) {
+        // only get integer
+        return Math.floor(Math.random() * (m - n + 1)) + n;
+      }
+      document.write(`${getRadom(4, 8)}`);
+
+      // get random item from array
+      let arr = ["rurf", "fjrr", "wwif", "ferra", "siwow", "fjfkf"];
+      // no need to add 1 for arr index
+      let ramIndex = Math.floor(Math.random() * arr.length);
+      document.write(`${arr[ramIndex]}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array iteration- max</title>
+  </head>
+  <body>
+    <script>
+      // get max num
+      let arr = [2, 6, 1, 77, 52, 25, 7];
+      // or give the first item to max
+      let max = arr[0];
+      // let max = 0;
+      for (let i = 1; i < arr.length; i++) {
+        if (max < arr[i]) {
+          max = arr[i];
+        }
+      }
+      document.write(`The max number is ${max}<br>`);
+    </script>
+  </body>
+</html>

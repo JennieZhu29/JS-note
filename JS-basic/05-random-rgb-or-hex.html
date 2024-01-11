@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      div {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      // input true - hex- #ffffff
+      // get random value from ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+      // input false - rgb -rgb(255, 255, 255)
+
+      function getRandomColor(flag = true) {
+        if (flag || flag == null) {
+          let arrColor = [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+          ];
+          let hex = "#";
+          for (let i = 0; i < 6; i++) {
+            let ramIndex = Math.floor(Math.random() * arrColor.length);
+            hex += arrColor[ramIndex];
+          }
+          return hex;
+        } else {
+          let rgb = [];
+          for (let i = 0; i < 3; i++) {
+            let ramRgb = Math.floor(Math.random() * 256);
+            rgb.push(ramRgb);
+          }
+          return "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ")";
+        }
+      }
+      document.write(`${getRandomColor()}<br>`);
+      document.write(`${getRandomColor(true)}<br>`);
+      document.write(`${getRandomColor(false)}`);
+
+      // show random color in a div box
+      const div = document.querySelector("div");
+      div.style.backgroundColor = getRandomColor();
+    </script>
+  </body>
+</html>

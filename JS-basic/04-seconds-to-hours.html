@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seconds to hours</title>
+  </head>
+  <body>
+    <script>
+      // give seconds then transformed to its hours, minutes and seconds
+      // default value!
+
+      // hrs = total seconds / 60 / 60 % 24
+      // mins = total seconds / 60 % 60
+      // secs = total seconds % 60
+
+      // why no let for all paras
+      function timeCalculate(tSec = 0) {
+        let hrs = parseInt((tSec / 60 / 60) % 24);
+        let mins = parseInt((tSec / 60) % 60);
+        let secs = parseInt(tSec % 60);
+        // format all values
+        // 00 : 00 : 00
+        hrs = hrs < 10 ? "0" + hrs : hrs;
+        mins = mins < 10 ? "0" + mins : mins;
+        secs = secs < 10 ? "0" + secs : secs;
+        console.log(hrs, mins, secs);
+        return `It is ${hrs} hours ${mins} minutes ${secs} seconds.`;
+      }
+
+      let n = +prompt("Please input total seconds :");
+      document.write(timeCalculate(n));
+    </script>
+  </body>
+</html>

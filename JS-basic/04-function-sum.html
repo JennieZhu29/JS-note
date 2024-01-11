@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function get sum</title>
+  </head>
+  <body>
+    <script>
+      // give array a default value
+      function getSum(arr = []) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          sum += arr[i];
+        }
+        document.write(`The sum of grade is ${sum}`);
+      }
+
+      let arrG = [78, 89, 85, 94, 84, 79];
+
+      getSum(arrG);
+      getSum();
+    </script>
+  </body>
+</html>

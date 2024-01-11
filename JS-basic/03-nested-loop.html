@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nested loop</title>
+  </head>
+  <body>
+    <script>
+      // input days and word count
+      let day = +prompt("How many days you learnt?");
+      let word = +prompt("how many words?");
+      for (let i = 0; i < day; i++) {
+        document.write(`Day ${i + 1}<br>`);
+        for (let j = 0; j < word; j++) {
+          document.write(`I am learning ${j + 1} words<br>`);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object</title>
+  </head>
+  <body>
+    <script>
+      let obj = {
+        module: "iPhone 15 Pro Max",
+        year: 2023,
+        memory: "265GB",
+        price: 2027,
+        chip: "M2",
+      };
+      // if attribute not defined, then add
+      obj.country = "US";
+
+      document.write(`${obj.country}`);
+
+      // delete item
+      delete obj.year;
+      console.log(obj);
+
+      console.log(obj["module"]);
+    </script>
+  </body>
+</html>

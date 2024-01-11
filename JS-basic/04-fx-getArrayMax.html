@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function get array max value</title>
+  </head>
+  <body>
+    <script>
+      // give array a default value
+      function getMax(arr = []) {
+        let temp = 0;
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 1; j < arr.length - i - 1; j++) {
+            if (arr[i] > arr[j]) {
+              temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+            }
+          }
+        }
+        return arr[arr.length - 1];
+      }
+
+      let arrN = [23, 56, 34, 12, 13, 66, 930];
+      let maxV = getMax(arrN);
+      document.write(`The max value is ${maxV}`);
+
+      // another way but bubble sort:
+      // if max < arr[i], then max = arr[i]
+    </script>
+  </body>
+</html>
