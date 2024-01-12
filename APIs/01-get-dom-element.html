@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom get element</title>
+  </head>
+  <body>
+    <!-- console output 3 items separately  -->
+    <ul>
+      <li>Homepage</li>
+      <li>Products</li>
+      <li>Contact Us</li>
+    </ul>
+  </body>
+  <script>
+    const lis = document.querySelectorAll("ul li");
+    for (let i = 0; i < 3; i++) {
+      console.log(lis[i]);
+    }
+  </script>
+</html>
