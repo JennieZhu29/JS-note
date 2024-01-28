@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClassList changing Style</title>
+    <style>
+      .box {
+        height: 300px;
+        width: 300px;
+        background-color: green;
+      }
+      .active {
+        background-color: blueviolet;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+  <script>
+    const item = document.querySelector(".box");
+    // add a class
+    // *** class name without '.' !
+    // item.classList.add("active");
+
+    // item.classList.remove("box");
+
+    // toggle is like switcher:
+    // if the class exists then remove;
+    // if not having the class then add
+    item.classList.toggle("active");
+  </script>
+</html>

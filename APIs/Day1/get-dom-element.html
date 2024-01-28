@@ -12,11 +12,20 @@
       <li>Products</li>
       <li>Contact Us</li>
     </ul>
+    <img src="./img/bear.png" alt="bear image" title="it is a bear" />
+    <!-- image title - hang over to the image then see the title -->
+    <button onclick="changeImg()">Change Animal</button>
   </body>
   <script>
     const lis = document.querySelectorAll("ul li");
     for (let i = 0; i < 3; i++) {
       console.log(lis[i]);
+    }
+
+    function changeImg() {
+      const image = document.querySelector("img");
+      image.src = "./img/panda.png";
+      image.title = "it is a panda now";
     }
   </script>
 </html>

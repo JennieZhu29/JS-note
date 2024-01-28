@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Image</title>
+  </head>
+  <body>
+    <img src="./img/bear.png" alt="bear image" title="it is a bear" />
+  </body>
+  <script>
+    // get integer range from N- M
+    function getRandom(N, M) {
+      return Math.floor(Math.random() * (M - N + 1)) + N;
+    }
+
+    const num = getRandom(1, 7);
+    // after changing the src path of the random image number
+    // refresh the page then img changes auto
+    const image = document.querySelector("img");
+    image.src = `./img/${num}.png`;
+  </script>
+</html>
