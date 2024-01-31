@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slideshow</title>
+    <title>Auto slider</title>
     <style>
       body {
         font-family: Arial, Helvetica, sans-serif;
@@ -11,6 +11,7 @@
       .wrapper {
         max-height: 500px;
         max-width: 1000px;
+        background-color: rgb(100, 67, 68);
       }
       .container {
         max-width: 1000px;
@@ -25,9 +26,6 @@
       .text {
         color: #f2f2f2;
         font-size: 20px;
-        padding: 8px 12px;
-        position: absolute;
-        bottom: 8px;
         width: 100%;
         text-align: center;
       }
@@ -70,33 +68,21 @@
       .dot:hover {
         background-color: #717171;
       }
-      /* 一个keyframe 定义了一个完整动画里某一时刻的一种动画样式。
-      动画绘制引擎会连贯平滑的实现各种样式间的转换。 
-      在上面的被定义为“bounce” 的动画中，有两个keyframes: 
-      一个是动画的起始状态( “from” 代码块) 和终止状态( “to” 代码块)。 */
-      @keyframes fade {
-        from {
-          opacity: 0.4;
-        }
-        to {
-          opacity: 1;
-        }
-      }
     </style>
   </head>
   <body>
     <div class="wrapper">
       <div class="container">
         <div class="main-pic">
-          <img src="../img/Sig/3.jpeg" alt="slider image" />
-          <div class="text"><p>Caption</p></div>
+          <img src="../img/Sig/1.webp" alt="slider image" />
         </div>
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
       </div>
       <br />
-      <div style="text-align: center" id="dot-line">
-        <span class="dot" onclick="toggleActive(1)"></span>
+      <div class="text"><p>too much for human?</p></div>
+      <div style="text-align: center" id="dot-line" class="dots">
+        <span class="dot active" onclick="toggleActive(1)"></span>
         <span class="dot" onclick="toggleActive(1)"></span>
         <span class="dot" onclick="toggleActive(1)"></span>
         <span class="dot" onclick="toggleActive(1)"></span>
@@ -107,8 +93,9 @@
   <script>
     /*
     [1] array object contains img url, title, and color
-    [2] get random number for ram img
-    [3] slider bottom dots to active (grey to white bg color)
+    [2] get elements from array
+    [3] set timer
+    [4] slider loop : when current num>= arr.length, num = 0
     */
     const sliderData = [
       {
@@ -137,28 +124,31 @@
         color: "rgb(67,90,92)",
       },
     ];
-
-    // function getRandom(N, M) {
-    //   const ram = Math.floor(Math.random() * (M - N + 1)) + N;
-    // }
-
-    // math.floor 向下取等 = math.parseInt
-    const ram = parseInt(Math.random() * sliderData.length);
+    let i = 0;
     // change image
     const image = document.querySelector(".main-pic img");
-    image.src = sliderData[ram].url;
     // change caption
     const title = document.querySelector(".text p");
-    title.innerHTML = sliderData[ram].title;
 
     // change color
     const wrapper = document.querySelector(".wrapper");
-    wrapper.style.backgroundColor = sliderData[ram].color;
-
     //change dot with ram
     const dot = document.getElementById("dot-line").children;
-    dot.item(ram).classList.add("active");
 
-    function toggleActive(params) {}
+    setInterval(function () {
+      // no need while true
+      i++;
+      // need to reset right after i++
+      if (i === sliderData.length) {
+        i = 0;
+      }
+      image.src = sliderData[i].url;
+      title.innerHTML = sliderData[i].title;
+      wrapper.style.backgroundColor = sliderData[i].color;
+      document.querySelector(".dots .active").classList.remove("active");
+      dot.item(i).classList.add("active");
+
+      console.log(i);
+    }, 2000);
   </script>
 </html>

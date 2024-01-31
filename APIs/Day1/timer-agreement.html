@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agreement Timer</title>
+  </head>
+  <body>
+    <textarea name="" id="" cols="30" rows="10">
+      平台用户协议（以下简称“本协议”）由以下双方根据《中华人民共和国合同法》等相关法律法规签署并遵照执行。
+
+用户：在手机、平板电脑、电脑等注册成为平台（以下简称“平台”或“平台方”）的使用者，通过平台发布、查看、接收图文/音频/视频信息或其他文件，或与其他用户进行延时/实时交流的用户（以下简称“用户”）。
+
+平台方：北京世纪超星信息技术发展有限责任公司（以下简称“平台方”）。
+
+本协议所指“用户”包括但不限于教师身份用户、家长身份用户和学生身份用户。
+    </textarea>
+    <br />
+    <button class="btn" disabled>I have read the user agreement (10s)</button>
+    <script>
+      const btn = document.querySelector(".btn");
+      let timer = 10;
+      let n = setInterval(function () {
+        timer--;
+        btn.innerHTML = `I have read the user agreement (${timer}s)`;
+        if (timer === 0) {
+          clearInterval(n);
+          btn.disabled = false;
+          btn.innerHTML = "I agreed";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>timmer-intermittent</title>
+  </head>
+  <body>
+    <button onclick="startTimer()">Start Timer</button>
+    <button onclick="endTimer()">End Timer</button>
+
+    <script>
+      // 1s = 1000ms
+      // setInterval(function () {
+      //   document.write(`print per sec<br>`);
+      // }, 1000);
+
+      let ifStopped = false;
+
+      function fn() {
+        let n = setInterval(function () {
+          console.log("Timer now!");
+          if (ifStopped) {
+            console.log("Timer stopped!");
+            clearInterval(n);
+          }
+        }, 2000);
+      }
+
+      function startTimer() {
+        ifStopped = false;
+        fn();
+      }
+
+      function endTimer() {
+        ifStopped = true;
+        fn();
+      }
+    </script>
+  </body>
+</html>

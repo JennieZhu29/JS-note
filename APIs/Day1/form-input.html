@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Form change</title>
+  </head>
+  <body>
+    click eye to hide password
+    <input type="text" value="password" />
+    <a onclick="hidePwd()"><i class="fa fa-eye" aria-hidden="true"></i></a>
+    <br />
+    <input type="checkbox" name="foo" id="check" />
+    <button>button</button>
+
+    <script>
+      function hidePwd() {
+        const pwd = document.querySelector("input");
+        if (pwd.type === "password") {
+          pwd.type = "text";
+        } else pwd.type = "password";
+      }
+
+      const ipt = document.getElementById("check");
+      ipt.checked = true;
+      // can work too cuz valued string is true
+      ipt.checked = "true";
+
+      const btn = document.querySelector("button");
+      btn.disabled = true;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auto slider V2</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      /*
+    [1] array object contains img url, title, and color
+    [2] get elements from array
+    [3] set timer
+    [4] slider loop : when current num>= arr.length, num = 0
+    */
+      const sliderData = [
+        {
+          url: "../img/Sig/1.webp",
+          title: "too much for human?",
+          color: "rgb(100,67,68)",
+        },
+        {
+          url: "../img/Sig/2.avif",
+          title: "Sword and snow legend!",
+          color: "rgb(43,35,26)",
+        },
+        {
+          url: "../img/Sig/3.jpeg",
+          title: "Real Jo chef showed up!",
+          color: "rgb(36,31,33)",
+        },
+        {
+          url: "../img/Sig/4.jpeg",
+          title: "Share your daily log for winder holiday~",
+          color: "rgb(139,98,66)",
+        },
+        {
+          url: "../img/Sig/5.jpeg",
+          title: "New year YEAH",
+          color: "rgb(67,90,92)",
+        },
+      ];
+      let i = 0;
+      // change image
+      const image = document.querySelector(".main-pic img");
+      // change caption
+      const title = document.querySelector(".text p");
+
+      // change color
+      const wrapper = document.querySelector(".wrapper");
+      //change dot with ram
+      const dot = document.getElementById("dot-line").children;
+
+      setInterval(function () {
+        i++;
+        if (i === sliderData.length) {
+          i = 0;
+        }
+        image.src = sliderData[i].url;
+        title.innerHTML = sliderData[i].title;
+        wrapper.style.backgroundColor = sliderData[i].color;
+        document.querySelector(".dots .active").classList.remove("active");
+        dot.item(i).classList.add("active");
+
+        console.log(i);
+      }, 2000);
+    </script>
+  </body>
+</html>
