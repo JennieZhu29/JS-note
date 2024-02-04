@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="input a name:" />
+    <script>
+      const input = document.querySelector("input");
+      //keyboard action
+      input.addEventListener("keydown", function () {
+        console.log("keyboard down");
+      });
+
+      input.addEventListener("keyup", function () {
+        console.log("keyboard up");
+      });
+
+      // user input text event
+      input.addEventListener("input", function () {
+        console.log(input.value);
+      });
+    </script>
+  </body>
+</html>

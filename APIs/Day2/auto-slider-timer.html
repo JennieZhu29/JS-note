@@ -163,10 +163,26 @@
       }
 
       // timer section
-      setInterval(function () {
+      let timerId;
+      timerId = setInterval(function () {
         // click()  but click
         next.click();
       }, 2000);
+
+      // mouse action
+      const slider = document.querySelector(".wrapper");
+      slider.addEventListener("mouseenter", function () {
+        clearInterval(timerId);
+      });
+
+      slider.addEventListener("mouseleave", function () {
+        // clear timer and start again
+        clearInterval(timerId);
+        timerId = setInterval(function () {
+          next.click();
+        }, 2000);
+      });
+      slider;
     </script>
   </body>
 </html>

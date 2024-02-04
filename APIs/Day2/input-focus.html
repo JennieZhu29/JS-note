@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input focus</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .wrapper {
+        position: relative;
+        width: 220px;
+        margin: 100px auto;
+      }
+
+      .wrapper input {
+        width: 220px;
+        height: 50px;
+        padding: 0 10px;
+        font-size: 14px;
+        line-height: 48px;
+        border: 1px solid #e0e0e0;
+        outline: none;
+      }
+
+      /* when mouse focused .search class will be added */
+      .wrapper .search {
+        border: 1px solid #ff6700;
+      }
+
+      .result-list {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 48px;
+        width: 220px;
+        border: 1px solid #ff6700;
+        border-top: 0;
+        background: #fff;
+      }
+      .result-list a {
+        display: block;
+        padding: 6px 15px;
+        font-size: 14px;
+        color: #424242;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <input type="search" placeholder="please input brand:" />
+      <ul class="result-list">
+        <li><a href="#">All brands</a></li>
+        <li><a href="#">Apple</a></li>
+        <li><a href="#">Samsung</a></li>
+        <li><a href="#">Huawei</a></li>
+        <li><a href="#">Google</a></li>
+        <li><a href="#">Xiaomi</a></li>
+        <li><a href="#">Nokia</a></li>
+      </ul>
+    </div>
+
+    <script>
+      const results = document.querySelector(".result-list");
+      const input = document.querySelector("[type=search]");
+
+      input.addEventListener("focus", function () {
+        results.style.display = "block";
+        //search with no '.'
+        input.classList.add("search");
+      });
+
+      input.addEventListener("blur", function () {
+        results.style.display = "none";
+        //search with no '.'
+        input.classList.remove("search");
+      });
+    </script>
+  </body>
+</html>
