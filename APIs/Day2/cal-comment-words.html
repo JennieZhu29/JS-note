@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comment words count</title>
+    <style>
+      .container {
+        width: 650px;
+      }
+      .wrapper {
+        display: flex;
+        min-width: 400px;
+        max-height: 800px;
+        justify-content: flex-end;
+      }
+      .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: url(../img/panda.png) no-repeat center / cover;
+      }
+      .wrapper textarea {
+        outline: none;
+        border-color: transparent;
+        resize: none;
+        background: #f5f5f5;
+        border-radius: 4px;
+        flex: 1;
+        padding: 10px;
+        transition: all 0.5s;
+        height: 30px;
+      }
+
+      .wrapper textarea:focus {
+        border-color: #e4e4e4;
+        background: #fff;
+        height: 50px;
+      }
+      .wrapper button {
+        background-color: #00aeec;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        margin-left: 10px;
+        width: 70px;
+        cursor: pointer;
+      }
+      .wrapper .total {
+        margin-right: 80px;
+        color: #999;
+        margin-top: 5px;
+        opacity: 0;
+        transition: all 0.5s;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .list {
+        min-width: 400px;
+        max-height: 800px;
+        display: flex;
+      }
+      .list .item {
+        width: 100%;
+        display: flex;
+      }
+      .list .item .info {
+        flex: 1;
+        border-bottom: 1px dashed #e4e4e4;
+        padding-bottom: 10px;
+      }
+
+      .list .item .name {
+        color: #fb7299;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .list .item .text {
+        color: #333;
+        padding: 10px 0;
+      }
+
+      .list .item .time {
+        color: #999;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="avatar"></div>
+        <textarea
+          name=""
+          id="tx"
+          rows="2"
+          placeholder="Share your ideas..."
+        ></textarea>
+        <button type="submit">Submit</button>
+      </div>
+      <div class="wrapper">
+        <span class="total">0/200 words</span>
+      </div>
+      <div class="list">
+        <div class="item" style="display: none">
+          <i class="avatar"></i>
+          <div class="info">
+            <p class="name">guesswho</p>
+            <p class="text">Such a great movie!</p>
+            <p class="time">2022-10-10 20:29:21</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tx = document.querySelector("#tx");
+      const total = document.querySelector(".total");
+      const item = document.querySelector(".item");
+      const text = document.querySelector(".text");
+      // when textarea is focused, show word count
+      // when textarea is blurred, don't show word count
+
+      tx.addEventListener("focus", function () {
+        // total.style.display = "block";
+        total.style.opacity = 1;
+        total.innerHTML = tx.value.length + "/200 words";
+      });
+      tx.addEventListener("blur", function () {
+        // total.style.display = "none";
+        total.style.opacity = 0;
+      });
+
+      let count = 0;
+      tx.addEventListener("input", function () {
+        count = tx.value.length;
+        total.innerHTML = `${count}/200 words`;
+        // if (count >= 200) {
+        //   tx.style.pointerEvents = "none";
+        // }
+      });
+
+      // when press "enter", then show comment item below
+      // 'Enter' but 'enter'
+      tx.addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+          // when input is null/space, do not show the comment
+
+          // if (tx.value.trim() !== "") {
+          if (tx.value.trim()) {
+            item.style.display = "block";
+            text.innerHTML = tx.value;
+          }
+
+          // clear textarea
+          tx.value = "";
+          total.innerHTML = `0/200 words`;
+        }
+      });
+    </script>
+  </body>
+</html>

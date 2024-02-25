@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORM SELECT</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .container {
+        padding: 2rem 0rem;
+      }
+
+      h3 {
+        margin: 2rem 0rem 1rem;
+      }
+      .table-bordered {
+        width: 600px;
+        text-align: center;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      th {
+        background-color: #008ac5;
+        color: white;
+      }
+
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Order Table</h3>
+      <div class="row">
+        <div class="col-12">
+          <table class="table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="checkAll"
+                  />Select All
+                </th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Retailer</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="">
+                    <input type="checkbox" class="ck" id="customCheck1" />
+                  </div>
+                </td>
+                <td>iPhone</td>
+                <td>Apple</td>
+                <td>$2,100</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="">
+                    <input type="checkbox" class="ck" id="customCheck2" />
+                  </div>
+                </td>
+                <td>MacBook Pro 16inch</td>
+                <td>Apple</td>
+                <td>$3,300</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="">
+                    <input type="checkbox" class="ck" id="customCheck3" />
+                  </div>
+                </td>
+                <td>Vision Pro</td>
+                <td>Apple</td>
+                <td>$4,200</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script>
+      const check0 = document.querySelector("#checkAll");
+      const cks = document.querySelectorAll(".ck");
+      // [1] select and unselect all checkboxes
+
+      // change or click event
+      check0.addEventListener("click", function () {
+        // loop all other checkboxes
+        // make the state of all other checkboxes the same as the check0
+        for (let i = 0; i < cks.length; i++) {
+          cks[i].checked = this.checked;
+        }
+      });
+
+      // [2] check all cks, check0 turns to checked
+      // ideas: loop all cks, add event listener
+      // if all ck checked number === cks.length, check0.checked = true
+      // use input:checked
+      for (let i = 0; i < cks.length; i++) {
+        cks[i].addEventListener("click", function () {
+          // if (document.querySelectorAll(".ck:checked").length === cks.length) {
+          //   check0.checked = true;
+          // } else {
+          //   check0.checked = false;
+          // }
+          // 用算数运算符判断
+          check0.checked =
+            document.querySelectorAll(".ck:checked").length === cks.length;
+        });
+      }
+    </script>
+  </body>
+</html>
